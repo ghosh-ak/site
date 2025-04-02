@@ -54,5 +54,18 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+// 2. Handle the Back/Forward button with popstate
+window.addEventListener('popstate', function(event) {
+  // Option A: Hard refresh (simplest approach)
+  location.reload();
+
+  // OR
+
+  // Option B: Remove or reset any overlays/transitions if you want a smoother approach:
+  // const overlay = document.getElementById('transition-overlay');
+  // overlay.classList.remove('fade-in', 'fade-out');
+  // (Adjust as needed to reset your page to a visible state)
+});
+
   
   
