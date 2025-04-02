@@ -17,55 +17,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
-// for transition
-
-document.addEventListener("DOMContentLoaded", function() {
-  // Create a transition overlay if it doesn't exist
-  let overlay = document.getElementById('transition-overlay');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.id = 'transition-overlay';
-    document.body.appendChild(overlay);
-  }
-  
-  // Slight delay to allow the overlay to render, then fade it out (revealing the page)
-  setTimeout(() => {
-    overlay.classList.add('fade-out');
-  }, 50);
-
-  // Attach click event listeners to all anchor tags
-  document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      // If link has target="_blank", do not intercept
-      if (link.getAttribute('target') === '_blank') {
-        return;
-      }
-      const href = link.getAttribute('href');
-      if (href && href !== '#' && !href.startsWith('javascript:')) {
-        e.preventDefault();
-        overlay.classList.remove('fade-out');
-        overlay.classList.add('fade-in');
-        setTimeout(() => {
-          window.location = href;
-        }, 500);
-      }
-    });
-  });
-});
-
-// 2. Handle the Back/Forward button with popstate
-window.addEventListener('popstate', function(event) {
-  // Option A: Hard refresh (simplest approach)
-  location.reload();
-
-  // OR
-
-  // Option B: Remove or reset any overlays/transitions if you want a smoother approach:
-  // const overlay = document.getElementById('transition-overlay');
-  // overlay.classList.remove('fade-in', 'fade-out');
-  // (Adjust as needed to reset your page to a visible state)
-});
-
   
   
