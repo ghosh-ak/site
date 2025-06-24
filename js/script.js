@@ -17,5 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-  
-  
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.querySelector('.menu-toggle');
+    const navTabs = document.querySelector('.nav-tabs');
+    
+    toggleButton.addEventListener('click', () => {
+      navTabs.classList.toggle('show');
+    });
+});

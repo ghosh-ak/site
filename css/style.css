@@ -407,6 +407,48 @@
   .contact-info a:hover {
     text-decoration: underline;
   }
+
+
+/* Hamburger Button - Hidden by default */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  z-index: 1100;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 1100;
+  }
+
+  .nav-tabs {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #004080;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  .nav-tabs.show {
+    display: flex;
+  }
+
+  header {
+    position: relative;
+  }
+}
+
   
   
   
